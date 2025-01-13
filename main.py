@@ -6,18 +6,20 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",  # URL del frontend in sviluppo
-    "http://192.168.178.27:3000",  # Indirizzo IP del frontend nella tua rete locale
-    "https://yourfrontenddomain.com",  # Aggiungi il dominio di produzione, se necessario
+    "https://investing-ideas-frontend.vercel.app",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,  # Consenti le richieste da questi domini
     allow_credentials=True,
-    allow_methods=["*"],  # Consenti tutti i metodi HTTP
+    allow_methods=["GET"],  # Consenti tutti i metodi HTTP
     allow_headers=["*"],  # Consenti tutte le intestazioni
 )
+@app.get("/")
+def read_root():
+    return {"message": "API is running successfully!"}
+
 
 @app.get("/company/{ticker}")
 async def get_company_data(ticker: str):

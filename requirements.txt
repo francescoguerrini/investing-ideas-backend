@@ -45,5 +45,6 @@ uvicorn==0.34.0
 w3lib==2.2.1
 webencodings==0.5.1
 websockets==10.4
+yahoo-fin==0.8.9.1
 yfinance==0.2.51
 zipp==3.21.0
