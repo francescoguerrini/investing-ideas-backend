@@ -33,8 +33,8 @@ def fetch_company_data(ticker: str) -> dict:
 
         # Calcolare la performance tra il 31 dicembre di due anni fa e il 31 dicembre dell'anno scorso
         today = dt.datetime.today()
-        start_date = dt.datetime(today.year - 2, 12, 31).strftime('%Y-%m-%d')  # 31 dicembre di due anni fa
-        end_date = dt.datetime(today.year - 1, 12, 31).strftime('%Y-%m-%d')  # 31 dicembre dell'anno scorso
+        start_date = dt.datetime(today.year - 1, 1, 1).strftime('%Y-%m-%d')  # 1 gennaio anno precedente
+        end_date = dt.datetime(today.year - 1, 12, 31).strftime('%Y-%m-%d')  # 31 dicembre anno precedente
         
         data = stock.history(start=start_date, end=end_date)
 
